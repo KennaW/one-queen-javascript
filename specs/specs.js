@@ -1,25 +1,25 @@
-describe('queenAttack', function() {
-  it("is false for unequal x-values", function() {
-    expect(queenAttack([1, 2], [2, 4])).to.equal(false);
+describe('pigLatin', function() {
+  it("returns input with 'ay' at the end", function() {
+    expect(pigLatin("T")).to.equal("Tay");
   });
 
-  it("is true for equal x-values", function() {
-    expect(queenAttack([1, 2], [1, 3])).to.equal(true);
+  it("put consenant at end of 'word', then attach ay", function() {
+    expect(pigLatin("be")).to.equal("ebay");
   });
 
-  it("is false for unequal y-values", function() {
-    expect(queenAttack([1, 2], [2, 4])).to.equal(false);
+  it("put consenants at end of 'word', then attach ay", function() {
+    expect(pigLatin("scram")).to.equal("amscray");
   });
 
-  it("is true for equal y-values", function() {
-    expect(queenAttack([1, 2], [3, 2])).to.equal(true);
+  it("leave word starting with vowel as is, then attach ay", function() {
+    expect(pigLatin("equal")).to.equal("equalay");
   });
 
-  it("is false for cases where both pieces are not diagonally aligned", function() {
-    expect(queenAttack([1, 1], [2, 3])).to.equal(false);
+  it("accepts a word starting with 'squ', puts first three letters at end of word, then attaches ay", function() {
+    expect(pigLatin("squid")).to.equal("idsquay");
   });
 
-  it("is true for cases where both pieces are diagonally aligned", function() {
-    expect(queenAttack([1, 4], [4, 7])).to.equal(true);
+  it("converts multiple words into pig latin", function() {
+    expect(pigLatin("big strong effing squid")).to.equal("igbay ongstray effingay idsquay");
   });
 });
